@@ -1,6 +1,4 @@
-
-<div style="background-color: #FFFFFF;">
-  # AlyrionSMP Rules
+# AlyrionSMP Rules
 
 The stars are showing the importance of each rule.
 
@@ -69,5 +67,3 @@ Duping is not allowed in any way.
 
 ### Rule 10
 I can edit these rules anytime and they will be in use immediately after publishing.
-
-</div>
