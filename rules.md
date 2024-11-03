@@ -79,7 +79,7 @@ You are not allowed to lag the server intentionally.
 Minecraft
 
 ### Rule 9 ***
-Duping is not allowed in any way.
+Duping is not allowed in any way except TnT Duping, where you dont get the block into you inventory but its instantly falling/exploding.
 
 Minecraft
 
