@@ -66,4 +66,8 @@ You are not allowed to lag the server intentionally.
 Duping is not allowed in any way.
 
 ### Rule 10
+You are not allowed to build your base out of indestructable blocks.
+(Blocks only you or some people can destroy count as indestructable.)
+
+### Rule 10
 I can edit these rules anytime and they will be in use immediately after publishing.
