@@ -21,7 +21,7 @@ Discord + Minecraft
 
 _"Be Nice"_ ~A nice guy
 
-### Rule 2 ***
+### Rule 2 ****
 Do not offline-raid.
 
 Minecraft
