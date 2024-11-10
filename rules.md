@@ -60,6 +60,8 @@ Minecraft
 Players who joined less then a minute ago are not allowed to be killed.
 You are not allowed to put lava or any dangerous blocks at the log-off point of any player.
 
+If someone leaves and joins in a timespan of 10 minutes or lower, these rules are not guilty.
+
 ### Rule 6 ****
 Do not self-advertise.
 
