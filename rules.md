@@ -95,6 +95,6 @@ I can edit these rules anytime and they will be in use immediately after publish
 Discord + Minecraft
 
 ### Rule 12 ****
-You have to throw away any items you got from Project e except Building Blocks and Food.
+You have to throw away any items you got from Project e except Building Blocks and Food except any golden food.
 
 Minecraft
