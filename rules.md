@@ -58,6 +58,7 @@ Do not Spawn Trap or Kill.
 Minecraft
 
 Players who joined less then a minute ago are not allowed to be killed.
+You are not allowed to put lava or any dangerous blocks at the log-off point of any player.
 
 ### Rule 6 ****
 Do not self-advertise.
