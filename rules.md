@@ -62,6 +62,8 @@ You are not allowed to put lava or any dangerous blocks at the log-off point of 
 
 If someone leaves and joins in a timespan of 10 minutes or lower, these rules are not guilty.
 
+If the newly joined player takes you 3 or more hearts, these rules are not guilty.
+
 ### Rule 6 ****
 Do not self-advertise.
 
