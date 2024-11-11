@@ -95,6 +95,9 @@ You are not allowed to build your base out of indestructable blocks.
 Minecraft
 
 ### Rule 11
+You have to read the rules.
+
+### Rule 12
 I can edit these rules anytime and they will be in use immediately after publishing.
 
 Discord + Minecraft
