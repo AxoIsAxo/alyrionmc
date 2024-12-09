@@ -85,6 +85,7 @@ Minecraft
 
 ### Rule 9 ***
 Duping is not allowed in any way except TnT Duping, where you dont get the block into you inventory but its instantly falling/exploding.
+Also dont use any gliches.
 
 Minecraft
 
