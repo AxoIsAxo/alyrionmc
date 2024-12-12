@@ -108,3 +108,6 @@ Minecraft
 I can edit these rules anytime and they will be in use immediately after publishing.
 
 Discord + Minecraft
+
+### Rule 14
+You are not allowed to leave sooner then 2 minutes after griefing or killing.
