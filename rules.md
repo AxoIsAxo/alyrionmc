@@ -28,7 +28,7 @@ Minecraft
 
 This means:
 
-Do not destroy bases or even enter them without permission when the owner/s of the base are offline.
+Do not destroy bases or even build in them without permission when the owner/s of the base are offline.
 
 ### Rule 3 **
 Do not cheat. 
