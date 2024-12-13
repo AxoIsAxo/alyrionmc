@@ -1,6 +1,6 @@
 Die Sterne zeigen die Wichtigkeit jeder Regel:
 
-* 1–3 Tage Bann.
+*\ 1–3 Tage Bann.
 ** = 1 Woche Bann.
 *** = 1 Monat Bann.
 **** = Permanenter Bann.
