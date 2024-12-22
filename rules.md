@@ -23,6 +23,9 @@ _"Be Nice"_ ~A nice guy
 
 ### Rule 2 ****
 Do not offline-raid.
+Do not destroy ever:
+The Event Palace at spawn.
+Anything in the Creation Zone.
 
 Minecraft
 
