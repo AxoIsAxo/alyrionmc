@@ -22,7 +22,7 @@ Discord + Minecraft
 _"Be Nice"_ ~A nice guy
 
 ### Rule 2 ****
-Do not offline-raid.
+Do not grief anything, except both players (the attacking player and the defending/owning player) allow.
 Do not destroy ever:
 The Event Palace at spawn.
 Anything in the Creation Zone.
