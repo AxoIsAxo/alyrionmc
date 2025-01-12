@@ -1,136 +1,84 @@
-/* Allgemeine Stile */
-body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom, #1e1e2f, #121212);
-    color: white;
-    margin: 0;
-    padding: 0;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alyrion Wiki</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="transparent-box">
+        <h1>Alyrion Wiki</h1>
+        <p>Your ultimate resource for everything Alyrion!</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#featured">Featured Articles</a></li>
+            </ul>
+        </nav>
+    </header>
 
-header, section, footer {
-    margin: 20px auto;
-    padding: 20px;
-    width: 90%;
-    max-width: 1200px;
-}
+    <!-- Main Section -->
+    <section id="main" class="transparent-box">
+        <h2>Welcome to the Alyrion Wiki</h2>
+        <p>Explore detailed guides, tips, and tricks about the Alyrion 2 Minecraft server. Whether you're a new player or a seasoned veteran, you'll find valuable information here.</p>
+        <a href="#categories" class="btn">Explore Categories</a>
+    </section>
 
-.transparent-box {
-    background: rgba(255, 255, 255, 0.2); /* Hellerer, ursprünglicher Hintergrund */
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-}
+    <!-- Categories Section -->
+    <section id="categories" class="transparent-box">
+        <h2>Categories</h2>
+        <div class="category-grid">
+            <div class="category">
+                <h3>Getting Started</h3>
+                <p>Learn the basics of Alyrion 2 and how to join the server.</p>
+                <a href="getting-started.html" class="btn">Learn More</a>
+            </div>
+            <div class="category">
+                <h3>Mods & Features</h3>
+                <p>Discover the unique mods and features that make Alyrion 2 special.</p>
+                <a href="mods-features.html" class="btn">Learn More</a>
+            </div>
+            <div class="category">
+                <h3>Building & Redstone</h3>
+                <p>Advanced building and automation techniques for Minecraft.</p>
+                <a href="building-redstone.html" class="btn">Learn More</a>
+            </div>
+            <div class="category">
+                <h3>Community Guidelines</h3>
+                <p>Learn about the rules and guidelines to ensure a friendly environment.</p>
+                <a href="community-guidelines.html" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
 
-/* Wiki-spezifische Stile */
-header {
-    text-align: center;
-}
+    <!-- Featured Articles Section -->
+    <section id="featured" class="transparent-box">
+        <h2>Featured Articles</h2>
+        <div class="featured-grid">
+            <div class="featured-article">
+                <h3>Top 5 Builds in Alyrion</h3>
+                <p>A showcase of the most impressive builds created by players.</p>
+                <a href="top-builds.html" class="btn">Read Article</a>
+            </div>
+            <div class="featured-article">
+                <h3>Mastering Create Mod</h3>
+                <p>Tips and tricks for using the Create mod to its fullest potential.</p>
+                <a href="create-mod-guide.html" class="btn">Read Article</a>
+            </div>
+            <div class="featured-article">
+                <h3>Exploring Ad Astra</h3>
+                <p>A guide to exploring space with the Ad Astra mod.</p>
+                <a href="ad-astra-guide.html" class="btn">Read Article</a>
+            </div>
+        </div>
+    </section>
 
-header h1 {
-    margin: 0;
-    font-size: 3em;
-}
-
-header p {
-    margin-top: 5px;
-    font-size: 1.2em;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2em;
-}
-
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
-/* Wiki Main Section */
-#main h2, #categories h2, #featured h2 {
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-#main p {
-    text-align: center;
-    margin: 10px 0;
-    font-size: 1.2em;
-}
-
-.btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 1em;
-    color: white;
-    background: rgba(0, 122, 204, 0.8); /* Einheitliche Buttons */
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background 0.2s;
-    text-align: center;
-}
-
-.btn:hover {
-    background: rgba(0, 122, 204, 1);
-}
-
-/* Kategorien und Featured Grid */
-.category-grid, .featured-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-
-/* Kategorie- und Featured Boxen */
-.category, .featured-article {
-    background: rgba(255, 255, 255, 0.2); /* Ursprünglicher transparenter Look */
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    transition: transform 0.2s, background 0.2s;
-}
-
-.category:hover, .featured-article:hover {
-    background: rgba(255, 255, 255, 0.3); /* Leichter Hover-Effekt */
-    transform: scale(1.05);
-}
-
-.category h3, .featured-article h3 {
-    margin: 10px 0;
-    font-size: 1.5em;
-}
-
-.category p, .featured-article p {
-    font-size: 1em;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-/* Footer */
-footer {
-    margin-top: 40px;
-    text-align: center;
-    font-size: 0.9em;
-}
-
-footer a {
-    color: rgba(0, 122, 204, 0.8);
-    text-decoration: none;
-}
-
-footer a:hover {
-    color: rgba(0, 122, 204, 1);
-}
+    <!-- Footer -->
+    <footer class="transparent-box">
+        <p>© 2025 Alyrion Wiki. All Rights Reserved. | <a href="contact.html">Contact Us</a></p>
+    </footer>
+</body>
+</html>
