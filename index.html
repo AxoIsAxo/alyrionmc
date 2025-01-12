@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alyrion 2 - Minecraft Server</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="transparent-box">
+        <h1>Alyrion 2</h1>
+        <nav>
+            <ul>
+                <li><a href="#main">Main</a></li>
+                <li><a href="#qa">Q&A</a></li>
+                <li><a href="#hop">Hall of Players</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="main" class="transparent-box">
+        <h2>Welcome!</h2>
+        <p>To your new Journey in the best Modded server of all time.</p>
+    </section>
+
+    <section id="qa" class="transparent-box">
+        <h2>Q&A</h2>
+        <div class="qa-item">
+            <h3 class="question">What is Alyrion 2?</h3>
+            <p class="answer">Alyrion 2 is a modded Minecraft server offering an immersive experience like no other.</p>
+        </div>
+        <div class="qa-item">
+            <h3 class="question">What Mods do you have?</h3>
+            <p class="answer">We offer a large variety of Mods, like Create, Ad Astra, Custom Mods like AUDM, and much more!</p>
+        </div>
+        <div class="qa-item">
+            <h3 class="question">Why should i join?</h3>
+            <p class="answer">Alyrion has a constant, and really nice Playerbase. The Modpack has the perfect combination of Tech, RPG elements, medieval and QoL Mods.</p>
+        </div>
+        <div class="qa-item">
+            <h3 class="question">Is it Cracked?</h3>
+            <p class="answer">Yes! Everyone can have fun at Alyrion. But we have the perfect Login system, not as annoying as normal ones.</p>
+        </div>
+    </section>
+
+    <section id="hop" class="transparent-box">
+        <h2>Hall of Players</h2>
+        <div class="players">
+            <div class="player" data-description="AxoManYT is the Owner of this Server. He was there from day one of course, and deserves a place here.">
+                <div class="skin" style="background-image: url('axomanyt.png');"></div>
+                <p>AxoManYT</p>
+            </div>
+            <div class="player" data-description="Player2 is an adventurer who has conquered the most dangerous dungeons.">
+                <div class="skin" style="background-image: url('player2.png');"></div>
+                <p>Player2</p>
+            </div>
+            <div class="player" data-description="Player3 is a master of redstone contraptions and automation.">
+                <div class="skin" style="background-image: url('player3.png');"></div>
+                <p>Player3</p>
+            </div>
+            <!-- Weitere Spieler können hier hinzugefügt werden -->
+        </div>
+    </section>
+
+    <footer class="transparent-box">
+        <p>© 2025 Alyrion 2. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Modal for Player Descriptions -->
+    <div id="player-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Player Description</h2>
+            <p id="player-description"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
