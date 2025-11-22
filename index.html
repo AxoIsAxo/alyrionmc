@@ -154,6 +154,9 @@
             font-weight: 600;
             margin-bottom: 10px;
             color: var(--text-color);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .mod-card.disabled .mod-name {
@@ -161,10 +164,14 @@
         }
 
         .mod-file {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             opacity: 0.7;
             margin-bottom: 15px;
             word-break: break-all;
+            font-family: monospace;
+            background: rgba(0,0,0,0.2);
+            padding: 5px;
+            border-radius: 4px;
         }
 
         .mod-info {
@@ -208,12 +215,13 @@
 
         .disabled-badge {
             display: inline-block;
-            padding: 3px 8px;
+            padding: 2px 8px;
             background-color: #ef4444;
             color: white;
             font-size: 0.7rem;
             border-radius: 20px;
-            margin-left: 10px;
+            margin-left: 8px;
+            vertical-align: middle;
             text-transform: uppercase;
             font-weight: 600;
         }
@@ -269,24 +277,24 @@
     <div class="container">
         <header>
             <h1><i class="fas fa-cube"></i> Alyrion Mod List</h1>
-            <p class="subtitle">A comprehensive collection of 101 mods for Minecraft 1.20.1</p>
+            <p class="subtitle">A comprehensive collection of 91 mods for Minecraft 1.20.1</p>
         </header>
 
         <div class="search-container">
-            <input type="text" class="search-box" id="searchBox" placeholder="Search for mods...">
+            <input type="text" class="search-box" id="searchBox" placeholder="Search for mods or filenames...">
         </div>
 
         <div class="stats">
             <div class="stat-card">
-                <div class="stat-number">101</div>
+                <div class="stat-number">91</div>
                 <div class="stat-label">Total Mods</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">99</div>
+                <div class="stat-number">88</div>
                 <div class="stat-label">Active Mods</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">2</div>
+                <div class="stat-number">3</div>
                 <div class="stat-label">Disabled Mods</div>
             </div>
         </div>
@@ -305,112 +313,108 @@
     </div>
 
     <script>
-        // Mod data
+        // Updated Mod data based on the provided list
         const mods = [
-            { name: "AeroBlender", file: "aeroblender-1.20.1-1.0.1-neoforge.jar", size: "21 KB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/aeroblender" },
-            { name: "The Aether", file: "aether-1.20.1-1.5.2-neoforge.jar", size: "38 MB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/aether" },
-            { name: "Alt Origin GUI", file: "AltOriginGui-forge-1.20.1-1.1.2.jar", size: "199 KB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/altorigingui" },
-            { name: "Applied Energistics 2", file: "appliedenergistics2-forge-15.4.10.jar", size: "8.1 MB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/applied-energistics-2" },
-            { name: "Architectury API", file: "architectury-9.2.14-forge.jar", size: "567 KB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/architectury-api" },
-            { name: "Botarium", file: "botarium-forge-1.20.1-2.3.4.jar", size: "154 KB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/botarium" },
-            { name: "Caelus API", file: "caelus-forge-3.2.0+1.20.1.jar", size: "39 KB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/caelus" },
-            { name: "CCAA", file: "ccaaa-1.0.0-forge-1.20.1.jar", size: "14 KB", date: "16.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/ccaa" },
-            { name: "Citadel", file: "citadel-2.6.2-1.20.1.jar", size: "3.0 MB", date: "14.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/citadel" },
-            { name: "Create: Clockwork", file: "clockwork-1.20.1-0.1.16-forge-b3b22e39fe.jar", size: "3.1 MB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/clockwork" },
-            { name: "Cloth Config", file: "cloth-config-11.1.136-forge.jar", size: "1.1 MB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/cloth-config" },
-            { name: "Clumps", file: "Clumps-forge-1.20.1-12.0.0.4.jar", size: "20 KB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/clumps" },
-            { name: "Continents", file: "Continents_1.21.x_v1.1.11.jar", size: "59 KB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/continents" },
-            { name: "Create: Copycats+", file: "copycats-2.1.4+mc.1.20.1-forge.jar", size: "1.7 MB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/copycats" },
-            { name: "Corgilib", file: "Corgilib-Forge-1.20.1-4.0.3.4.jar", size: "352 KB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/corgilib" },
-            { name: "Cosmic Additions", file: "cosmic_additions-0.0.1-forge-1.20.1.jar", size: "441 KB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/cosmic-additions" },
-            { name: "Cosmic Horizons", file: "Cosmic_Horizons_0.0.7.3-forge-1.20.1.jar", size: "27 MB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/cosmic-horizons" },
-            { name: "Create", file: "create-1.20.1-0.5.1.j.jar", size: "14.9 MB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/create" },
-            { name: "Create: New Age", file: "create-new-age-forge-1.20.1-1.1.2.jar", size: "648 KB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/create-new-age" },
-            { name: "Create Deco", file: "createdeco-2.0.2-1.20.1-forge.jar", size: "3.8 MB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/createdeco" },
-            { name: "Create: Hypertube", file: "create_hypertube-0.1.3-CREATE-0.5.1.jar", size: "246 KB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/create-hypertube" },
-            { name: "Create: Jetpack", file: "create_jetpack-forge-4.3.2.jar", size: "220 KB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/create-jetpack" },
-            { name: "CTov Rats Compat", file: "ctov-rats-compat-1.0.jar", size: "38 KB", date: "14.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/ctov-rats-compat" },
-            { name: "Curios API", file: "curios-forge-5.14.1+1.20.1.jar", size: "389 KB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/curios" },
-            { name: "Custom Ore Veins", file: "customoreveins-1.20-1.0.0-forge.jar", size: "29 KB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/customoreveins" },
-            { name: "CWB", file: "cwb-forge-3.0.0+mc1.20.jar.disabled", size: "253 KB", date: "12.11.2025", disabled: true, modrinth: "https://modrinth.com/mod/cwb" },
-            { name: "Cyberspace", file: "cyberspace 2.2.0 (F1.20.1).jar", size: "671 KB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/cyberspace" },
-            { name: "Deep Aether", file: "deep_aether-1.20.1-1.1.7.jar", size: "38.6 MB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/deep-aether" },
-            { name: "Drippy Loading Screen", file: "drippyloadingscreen_forge_3.0.12_MC_1.20.1.jar", size: "234 KB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/drippyloadingscreen" },
-            { name: "Dynamic Trees BWG Compat", file: "Dynamic Trees BWG-1.20.1-1.0.8.jar", size: "1.2 MB", date: "14.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/dynamic-trees-bwg" },
-            { name: "Dynamic FPS", file: "dynamic-fps-3.9.5+minecraft-1.20.0-forge.jar.disabled", size: "367 KB", date: "12.11.2025", disabled: true, modrinth: "https://modrinth.com/mod/dynamic-fps" },
-            { name: "Dynamic Trees", file: "DynamicTrees-1.20.1-1.4.7.jar", size: "3.6 MB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/dynamic-trees" },
-            { name: "Dynamic Trees Plus", file: "DynamicTreesPlus-1.20.1-1.2.1.jar", size: "522 KB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/dynamic-trees-plus" },
-            { name: "Dynamic Trees RU", file: "DynamicTreesRU-1.20.1-1.0.1.jar", size: "746 KB", date: "14.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/dynamic-trees-ru" },
-            { name: "Dynamic Trees Terralith Compat", file: "DynamicTreesTerralith-1.20.1-1.2.6.jar", size: "502 KB", date: "14.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/dynamic-trees-terralith" },
-            { name: "E4MC", file: "e4mc_minecraft-forge-5.4.1.jar", size: "616 KB", date: "17.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/e4mc" },
-            { name: "Entity Culling", file: "entityculling-forge-1.9.3-mc1.20.1.jar", size: "467 KB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/entityculling" },
-            { name: "Eureka!", file: "eureka-1201-1.5.1-beta.3.jar", size: "490 KB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/eureka" },
-            { name: "FancyMenu", file: "fancymenu_forge_3.7.0_MC_1.20.1.jar", size: "3.5 MB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/fancymenu" },
-            { name: "Farlands Reborn", file: "farlandsreborn-1.0.0-1.20.x.jar", size: "9.5 KB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/farlandsreborn" },
-            { name: "FerriteCore", file: "ferritecore-6.0.1-forge.jar", size: "120 KB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/ferritecore" },
-            { name: "GeckoLib", file: "geckolib-forge-1.20.1-4.8.2.jar", size: "991 KB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/geckolib" },
-            { name: "Gliders", file: "gliders-forge-1.1.7.jar", size: "728 KB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/gliders" },
-            { name: "Guide Me", file: "guideme-20.1.14.jar", size: "9.0 MB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/guideme" },
-            { name: "Horse Expert", file: "HorseExpert-v8.1.1-1.20.1-Forge.jar", size: "95 KB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/horse-expert" },
-            { name: "Horses Can Swim", file: "horsescanswim-1.0.1.jar", size: "4.7 KB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/horses-can-swim" },
-            { name: "ImmediatelyFast", file: "ImmediatelyFast-Forge-1.5.2+1.20.4.jar", size: "415 KB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/immediatelyfast" },
-            { name: "Immersive Vehicles", file: "Immersive Vehicles-1.20.1-22.18.1.jar", size: "5.9 MB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/immersive-vehicles" },
-            { name: "Incendium", file: "Incendium_1.20.x_v5.3.5.jar", size: "4.4 MB", date: "14.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/incendium" },
-            { name: "Jade", file: "Jade-1.20.1-Forge-11.13.2.jar", size: "539 KB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/jade" },
-            { name: "Jade VS Compat", file: "Jade-VS-forge-1.20.1-1.2.3.jar", size: "63 KB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/jade-vs-compat" },
-            { name: "Just Enough Items", file: "jei-1.20.1-forge-15.20.0.118.jar", size: "1.3 MB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/jei" },
-            { name: "Konkrete", file: "konkrete_forge_1.8.0_MC_1.20-1.20.1.jar", size: "610 KB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/konkrete" },
-            { name: "Kotlin for Forge", file: "kotlinforforge-4.11.0-all.jar", size: "6.9 MB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/kotlin-for-forge" },
-            { name: "KubeJS", file: "kubejs-forge-2001.6.5-build.16.jar", size: "1.6 MB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/kubejs" },
-            { name: "KubeJS Offline", file: "kubejsoffline-5.0.7.jar", size: "1.5 MB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/kubejsoffline" },
-            { name: "Lithostitched", file: "lithostitched-forge-1.20.1-1.4.11.jar", size: "465 KB", date: "14.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/lithostitched" },
-            { name: "Lodestone", file: "lodestone-1.20.1-1.6.4.1.jar", size: "656 KB", date: "16.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/lodestone" },
-            { name: "LostCities", file: "lostcities-1.20-7.4.0.jar", size: "1.2 MB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/lostcities" },
-            { name: "Melody", file: "melody_forge_1.0.3_MC_1.20.1-1.20.4.jar", size: "36 KB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/melody" },
-            { name: "Memory Leak Fix", file: "memoryleakfix-forge-1.17+-1.1.5.jar.disabled", size: "223 KB", date: "12.11.2025", disabled: true, modrinth: "https://modrinth.com/mod/memoryleakfix" },
-            { name: "ModernFix", file: "modernfix-forge-5.25.1+mc1.20.1.jar", size: "874 KB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/modernfix" },
-            { name: "Mouse Tweaks", file: "MouseTweaks-forge-mc1.20.1-2.25.1.jar", size: "74 KB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/mouse-tweaks" },
-            { name: "NedoLogin", file: "nedologin-2.0.3.jar", size: "390 KB", date: "14.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/nedologin" },
-            { name: "Nickname Easy", file: "nickname_easy-1.0.jar", size: "1.5 MB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/nickname-easy" },
-            { name: "Nullscape", file: "Nullscape_1.20.x_v1.2.8.jar", size: "390 KB", date: "14.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/nullscape" },
-            { name: "Oh The Biomes We've Gone", file: "Oh-The-Biomes-Weve-Gone-Forge-1.7.0.jar", size: "17.8 MB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/oh-the-biomes-weve-gone" },
-            { name: "Oh The Trees You'll Grow", file: "Oh-The-Trees-Youll-Grow-forge-1.20.1-1.4.2.jar", size: "138 KB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/oh-the-trees-youll-grow" },
-            { name: "OreGrowth", file: "oregrowth-1.1.7-forge-mc1.20.1.jar", size: "229 KB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/oregrowth" },
-            { name: "Origins: Backgrounds Two", file: "Origins-Backgrounds-Two-1.20.1-1.0.4.jar", size: "32 KB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/origins-backgrounds-two" },
-            { name: "Origins: Classes", file: "origins-classes-forge-1.2.1.jar", size: "186 KB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/origins-classes" },
-            { name: "Origins", file: "origins-forge-1.20.1-1.10.0.9-all.jar", size: "2.2 MB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/origins" },
-            { name: "Puzzles Lib", file: "PuzzlesLib-v8.1.33-1.20.1-Forge.jar", size: "1.3 MB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/puzzles-lib" },
-            { name: "Rats", file: "Rats-1.20.1-8.1.3.jar", size: "8.0 MB", date: "14.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/rats" },
-            { name: "Regional Ore Veins", file: "regionaloreveins-1.20.1-1.0.0.jar", size: "158 KB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/regional-ore-veins" },
-            { name: "Regions Unexplored", file: "RegionsUnexploredForge-0.5.6+1.20.1.jar", size: "5.5 MB", date: "14.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/regions-unexplored" },
-            { name: "Resourceful Config", file: "resourcefulconfig-forge-1.20.1-2.1.3.jar", size: "134 KB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/resourceful-config" },
-            { name: "Resourceful Lib", file: "resourcefullib-forge-1.20.1-2.1.29.jar", size: "423 KB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/resourcefullib" },
-            { name: "Rhino", file: "rhino-forge-2001.2.3-build.10.jar", size: "1.7 MB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/rhino" },
-            { name: "Sophisticated Backpacks", file: "sophisticatedbackpacks-1.20.1-3.24.12.1411.jar", size: "951 KB", date: "16.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/sophisticated-backpacks" },
-            { name: "Spark", file: "spark-1.10.53-forge.jar", size: "3.0 MB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/spark" },
-            { name: "Spiffy HUD", file: "spiffyhud_forge_3.0.0_MC_1.20.1.jar", size: "461 KB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/spiffyhud" },
-            { name: "Starlance", file: "starlance-1.4.1.jar", size: "391 KB", date: "16.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/starlance" },
-            { name: "Superb Warfare", file: "superbwarfare-1.20.1-0.8.7.1-6b9d8bd8a.jar", size: "23.1 MB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/superbwarfare" },
-            { name: "SuperMartijn642's Config Lib", file: "supermartijn642configlib-1.1.8-forge-mc1.20.jar", size: "202 KB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/supermartijn642s-config-lib" },
-            { name: "SuperMartijn642's Core Lib", file: "supermartijn642corelib-1.1.18-forge-mc1.20.1.jar", size: "503 KB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/supermartijn642s-core-lib" },
-            { name: "TerraBlender", file: "TerraBlender-forge-1.20.1-3.0.1.10.jar", size: "105 KB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/terrablender" },
-            { name: "Terralith", file: "Terralith_1.20.x_v2.5.4.jar", size: "3.0 MB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/terralith" },
-            { name: "TIDE", file: "tide-forge-1.20.1-1.6.5.jar", size: "974 KB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/tide" },
-            { name: "UNU Civilian Pack", file: "UNU Civilian Pack [MTS] 1.20.1-22.18.0-6.7.1.jar", size: "120.6 MB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/unu-civilian-pack" },
-            { name: "UNU Parts Pack", file: "UNU Parts Pack [MTS] 1.20.1-22.18.0-6.7.3.jar", size: "30.5 MB", date: "13.10.2025", disabled: false, modrinth: "https://modrinth.com/mod/unu-parts-pack" },
-            { name: "Valkyrien Skies", file: "valkyrienskies-120-2.1.3-beta.1.jar", size: "13.1 MB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/valkyrien-skies" },
-            { name: "Valkyrien Space War", file: "valkyrien_space_war-0.6.18.jar", size: "5.2 MB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/valkyrien-space-war" },
-            { name: "VLib", file: "vlib-1.20.1-0.0.15-alpha+forge.jar", size: "602 KB", date: "16.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/vlib" },
-            { name: "Simple Voice Chat", file: "voicechat-forge-1.20.1-2.6.6.jar", size: "4.7 MB", date: "14.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/simple-voice-chat" },
-            { name: "Warium", file: "Warium 1.1.3.jar", size: "11.4 MB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/warium" },
-            { name: "Warium VS Compat", file: "WariumVS 0.1.0.jar", size: "3.2 MB", date: "11.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/warium-vs" },
-            { name: "Xaero's Minimap", file: "Xaeros_Minimap_25.2.10_Forge_1.20.jar", size: "1.6 MB", date: "12.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/xaeros-minimap" },
-            { name: "ZPL", file: "zpl-1.20.1-1.2.3.jar", size: "299 KB", date: "16.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/zpl" },
-            { name: "ZPS", file: "zps-1.20.1-1.0.5.jar", size: "522 KB", date: "16.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/zps" },
-            { name: "Create: The Village Overhauled", file: "[forge]ctov-3.4.14.jar", size: "6.5 MB", date: "14.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/ctov" }
+            { name: "AeroBlender", file: "aeroblender-1.20.1-1.0.1-neoforge.jar", size: "21 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/aeroblender" },
+            { name: "The Aether", file: "aether-1.20.1-1.5.2-neoforge.jar", size: "38 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/aether" },
+            { name: "Alt Origin GUI", file: "AltOriginGui-forge-1.20.1-1.1.2.jar", size: "199 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/altorigingui" },
+            { name: "Applied Energistics 2", file: "appliedenergistics2-forge-15.4.10.jar", size: "8.1 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/applied-energistics-2" },
+            { name: "Architectury API", file: "architectury-9.2.14-forge.jar", size: "567 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/architectury-api" },
+            { name: "Botarium", file: "botarium-forge-1.20.1-2.3.4.jar", size: "154 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/botarium" },
+            { name: "Caelus API", file: "caelus-forge-3.2.0+1.20.1.jar", size: "39 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/caelus" },
+            { name: "CCAAA (Create Addon)", file: "ccaaa-1.0.0-forge-1.20.1.jar", size: "14 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/ccaa" },
+            { name: "Citadel", file: "citadel-2.6.2-1.20.1.jar", size: "3.0 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/citadel" },
+            { name: "Create: Clockwork", file: "clockwork-1.20.1-0.1.16-forge-b3b22e39fe.jar", size: "3.1 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/clockwork" },
+            { name: "Cloth Config", file: "cloth-config-11.1.136-forge.jar", size: "1.1 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/cloth-config" },
+            { name: "Clumps", file: "Clumps-forge-1.20.1-12.0.0.4.jar", size: "20 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/clumps" },
+            { name: "Continents", file: "Continents_1.21.x_v1.1.11.jar", size: "59 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/continents" },
+            { name: "Create: Copycats+", file: "copycats-2.1.4+mc.1.20.1-forge.jar", size: "1.7 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/copycats" },
+            { name: "Corgilib", file: "Corgilib-Forge-1.20.1-4.0.3.4.jar", size: "352 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/corgilib" },
+            { name: "Cosmic Additions", file: "cosmic_additions-0.0.1-forge-1.20.1.jar", size: "441 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/cosmic-additions" },
+            { name: "Cosmic Horizons", file: "Cosmic_Horizons_0.0.7.3-forge-1.20.1.jar", size: "27 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/cosmic-horizons" },
+            { name: "Create", file: "create-1.20.1-0.5.1.j.jar", size: "14.9 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/create" },
+            { name: "Create Deco", file: "createdeco-2.0.2-1.20.1-forge.jar", size: "3.8 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/createdeco" },
+            { name: "Create: Hypertube", file: "create_hypertube-0.1.3-CREATE-0.5.1.jar", size: "246 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/create-hypertube" },
+            { name: "Create: Jetpack", file: "create_jetpack-forge-4.3.2.jar", size: "220 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/create-jetpack" },
+            { name: "Create: New Age", file: "create-new-age-forge-1.20.1-1.1.2.jar", size: "648 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/create-new-age" },
+            { name: "CTOV - Rats Compat", file: "ctov-rats-compat-1.0.jar", size: "38 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/ctov-rats-compat" },
+            { name: "Curios API", file: "curios-forge-5.14.1+1.20.1.jar", size: "389 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/curios" },
+            { name: "Custom Ore Veins", file: "customoreveins-1.20-1.0.0-forge.jar", size: "29 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/customoreveins" },
+            { name: "CWB (Disabled)", file: "cwb-forge-3.0.0+mc1.20.jar.disabled", size: "253 KB", date: "22.11.2025", disabled: true, modrinth: "https://modrinth.com/mod/cwb" },
+            { name: "Cyberspace", file: "cyberspace 2.2.0 (F1.20.1).jar", size: "671 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/cyberspace" },
+            { name: "Deep Aether", file: "deep_aether-1.20.1-1.1.7.jar", size: "38.6 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/deep-aether" },
+            { name: "Drippy Loading Screen", file: "drippyloadingscreen_forge_3.0.12_MC_1.20.1.jar", size: "234 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/drippyloadingscreen" },
+            { name: "Dynamic FPS", file: "dynamic-fps-3.9.5+minecraft-1.20.0-forge.jar.disabled", size: "367 KB", date: "22.11.2025", disabled: true, modrinth: "https://modrinth.com/mod/dynamic-fps" },
+            { name: "Dynamic Trees", file: "DynamicTrees-1.20.1-1.4.7.jar", size: "3.6 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/dynamic-trees" },
+            { name: "Dynamic Trees - BWG", file: "Dynamic Trees BWG-1.20.1-1.0.8.jar", size: "1.2 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/dynamic-trees-bwg" },
+            { name: "Dynamic Trees Plus", file: "DynamicTreesPlus-1.20.1-1.2.1.jar", size: "522 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/dynamic-trees-plus" },
+            { name: "Dynamic Trees - RU", file: "DynamicTreesRU-1.20.1-1.0.1.jar", size: "746 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/dynamic-trees-regions-unexplored" },
+            { name: "Dynamic Trees - Terralith", file: "DynamicTreesTerralith-1.20.1-1.2.6.jar", size: "502 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/dynamic-trees-terralith" },
+            { name: "e4mc", file: "e4mc_minecraft-forge-5.4.1.jar", size: "616 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/e4mc" },
+            { name: "Entity Culling", file: "entityculling-forge-1.9.3-mc1.20.1.jar", size: "467 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/entityculling" },
+            { name: "Eureka!", file: "eureka-1201-1.5.1-beta.3.jar", size: "490 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/eureka" },
+            { name: "FancyMenu", file: "fancymenu_forge_3.7.0_MC_1.20.1.jar", size: "3.5 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/fancymenu" },
+            { name: "Farlands Reborn", file: "farlandsreborn-1.0.0-1.20.x.jar", size: "9.5 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/farlands-reborn" },
+            { name: "FerriteCore", file: "ferritecore-6.0.1-forge.jar", size: "120 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/ferrite-core" },
+            { name: "Create: The Village Overhauled", file: "[forge]ctov-3.4.14.jar", size: "6.5 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/ctov" },
+            { name: "GeckoLib", file: "geckolib-forge-1.20.1-4.8.2.jar", size: "991 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/geckolib" },
+            { name: "Gliders", file: "gliders-forge-1.1.7.jar", size: "728 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/gliders" },
+            { name: "Guide Me", file: "guideme-20.1.14.jar", size: "9.0 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/guide-me-guide" },
+            { name: "Horse Expert", file: "HorseExpert-v8.1.1-1.20.1-Forge.jar", size: "95 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/horse-expert" },
+            { name: "Horses Can Swim", file: "horsescanswim-1.0.1.jar", size: "4.7 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/horses-can-swim" },
+            { name: "ImmediatelyFast", file: "ImmediatelyFast-Forge-1.5.2+1.20.4.jar", size: "415 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/immediatelyfast" },
+            { name: "Immersive Vehicles", file: "Immersive Vehicles-1.20.1-22.18.1.jar", size: "5.9 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/immersive-vehicles" },
+            { name: "Jade", file: "Jade-1.20.1-Forge-11.13.2.jar", size: "539 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/jade" },
+            { name: "Jade - Valkyrien Skies", file: "Jade-VS-forge-1.20.1-1.2.3.jar", size: "63 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/jade-vs-compat" },
+            { name: "Just Enough Items (JEI)", file: "jei-1.20.1-forge-15.20.0.118.jar", size: "1.3 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/jei" },
+            { name: "Konkrete", file: "konkrete_forge_1.8.0_MC_1.20-1.20.1.jar", size: "610 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/konkrete" },
+            { name: "Kotlin for Forge", file: "kotlinforforge-4.11.0-all.jar", size: "6.9 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/kotlin-for-forge" },
+            { name: "KubeJS", file: "kubejs-forge-2001.6.5-build.16.jar", size: "1.6 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/kubejs" },
+            { name: "KubeJS Offline", file: "kubejsoffline-5.0.7.jar", size: "1.5 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/kubejsoffline" },
+            { name: "Lithostitched", file: "lithostitched-forge-1.20.1-1.4.11.jar", size: "465 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/lithostitched" },
+            { name: "Lodestone", file: "lodestone-1.20.1-1.6.4.1.jar", size: "656 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/lodestone" },
+            { name: "The Lost Cities", file: "lostcities-1.20-7.4.0.jar", size: "1.2 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/lost-cities" },
+            { name: "Melody", file: "melody_forge_1.0.3_MC_1.20.1-1.20.4.jar", size: "36 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/melody" },
+            { name: "Memory Leak Fix", file: "memoryleakfix-forge-1.17+-1.1.5.jar.disabled", size: "223 KB", date: "22.11.2025", disabled: true, modrinth: "https://modrinth.com/mod/memoryleakfix" },
+            { name: "ModernFix", file: "modernfix-forge-5.25.1+mc1.20.1.jar", size: "874 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/modernfix" },
+            { name: "Mouse Tweaks", file: "MouseTweaks-forge-mc1.20.1-2.25.1.jar", size: "74 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/mouse-tweaks" },
+            { name: "NedoLogin", file: "nedologin-2.0.3.jar", size: "390 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/nedologin" },
+            { name: "Nickname Easy", file: "nickname_easy-1.0.jar", size: "1.5 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/nickname-easy" },
+            { name: "Oh The Biomes We've Gone", file: "Oh-The-Biomes-Weve-Gone-Forge-1.7.0.jar", size: "17.8 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/oh-the-biomes-weve-gone" },
+            { name: "Oh The Trees You'll Grow", file: "Oh-The-Trees-Youll-Grow-forge-1.20.1-1.4.2.jar", size: "138 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/oh-the-trees-youll-grow" },
+            { name: "OreGrowth", file: "oregrowth-1.1.7-forge-mc1.20.1.jar", size: "229 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/oregrowth" },
+            { name: "Origins: Backgrounds Two", file: "Origins-Backgrounds-Two-1.20.1-1.0.4.jar", size: "32 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/origins-backgrounds-two" },
+            { name: "Origins: Classes", file: "origins-classes-forge-1.2.1.jar", size: "186 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/origins-classes" },
+            { name: "Origins", file: "origins-forge-1.20.1-1.10.0.9-all.jar", size: "2.2 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/origins" },
+            { name: "Puzzles Lib", file: "PuzzlesLib-v8.1.33-1.20.1-Forge.jar", size: "1.3 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/puzzles-lib" },
+            { name: "Rats", file: "Rats-1.20.1-8.1.3.jar", size: "8.0 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/rats" },
+            { name: "Regional Ore Veins", file: "regionaloreveins-1.20.1-1.0.0.jar", size: "158 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/regional-ore-veins" },
+            { name: "Regions Unexplored", file: "RegionsUnexploredForge-0.5.6+1.20.1.jar", size: "5.5 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/regions-unexplored" },
+            { name: "Resourceful Config", file: "resourcefulconfig-forge-1.20.1-2.1.3.jar", size: "134 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/resourceful-config" },
+            { name: "Resourceful Lib", file: "resourcefullib-forge-1.20.1-2.1.29.jar", size: "423 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/resourceful-lib" },
+            { name: "Rhino", file: "rhino-forge-2001.2.3-build.10.jar", size: "1.7 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/rhino" },
+            { name: "Spark", file: "spark-1.10.53-forge.jar", size: "3.0 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/spark" },
+            { name: "Spiffy HUD", file: "spiffyhud_forge_3.0.0_MC_1.20.1.jar", size: "461 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/spiffy-hud" },
+            { name: "Starlance", file: "starlance-1.4.1.jar", size: "391 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/starlance" },
+            { name: "Superb Warfare", file: "superbwarfare-1.20.1-0.8.7.1-6b9d8bd8a.jar", size: "23.1 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/superb-warfare" },
+            { name: "SuperMartijn642's Config Lib", file: "supermartijn642configlib-1.1.8-forge-mc1.20.jar", size: "202 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/supermartijn642s-config-lib" },
+            { name: "SuperMartijn642's Core Lib", file: "supermartijn642corelib-1.1.18-forge-mc1.20.1.jar", size: "503 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/supermartijn642s-core-lib" },
+            { name: "TerraBlender", file: "TerraBlender-forge-1.20.1-3.0.1.10.jar", size: "105 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/terrablender" },
+            { name: "Terralith", file: "Terralith_1.20.x_v2.5.4.jar", size: "3.0 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/terralith" },
+            { name: "Tide", file: "tide-forge-1.20.1-1.6.5.jar", size: "974 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/tide" },
+            { name: "UNU Civilian Pack", file: "UNU Civilian Pack [MTS] 1.20.1-22.18.0-6.7.1.jar", size: "120.6 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/unu-civilian-pack" },
+            { name: "UNU Parts Pack", file: "UNU Parts Pack [MTS] 1.20.1-22.18.0-6.7.3.jar", size: "30.5 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/unu-parts-pack" },
+            { name: "Valkyrien Skies", file: "valkyrienskies-120-2.1.3-beta.1.jar", size: "13.1 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/valkyrien-skies" },
+            { name: "Valkyrien Space War", file: "valkyrien_space_war-0.6.18.jar", size: "5.2 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/valkyrien-space-war" },
+            { name: "Simple Voice Chat", file: "voicechat-forge-1.20.1-2.6.6.jar", size: "4.7 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/simple-voice-chat" },
+            { name: "Warium", file: "Warium 1.1.3.jar", size: "11.4 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/warium" },
+            { name: "Warium VS Compat", file: "WariumVS 0.1.0.jar", size: "3.2 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/warium-vs" },
+            { name: "Xaero's Minimap", file: "Xaeros_Minimap_25.2.10_Forge_1.20.jar", size: "1.6 MB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/xaeros-minimap" },
+            { name: "ZPL", file: "zpl-1.20.1-1.2.3.jar", size: "299 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/zpl" },
+            { name: "ZPS", file: "zps-1.20.1-1.0.5.jar", size: "522 KB", date: "22.11.2025", disabled: false, modrinth: "https://modrinth.com/mod/zps" }
         ];
 
-        // Function to format file size
+        // Function to format file size (Currently just returning the string as data was provided mixed)
         function formatFileSize(size) {
             return size;
         }
@@ -425,11 +429,11 @@
                 modCard.className = `mod-card ${mod.disabled ? 'disabled' : ''}`;
                 
                 modCard.innerHTML = `
-                    <div class="mod-name">
+                    <div class="mod-name" title="${mod.name}">
                         ${mod.name}
                         ${mod.disabled ? '<span class="disabled-badge">Disabled</span>' : ''}
                     </div>
-                    <div class="mod-file">${mod.file}</div>
+                    <div class="mod-file" title="${mod.file}">${mod.file}</div>
                     <div class="mod-info">
                         <div class="mod-size"><i class="fas fa-file"></i> ${formatFileSize(mod.size)}</div>
                         <div class="mod-date"><i class="fas fa-calendar"></i> ${mod.date}</div>
